@@ -1,0 +1,2 @@
+# unitylicensemaster
+Unity上で使うライブラリなどのライセンスを管理できるEditor拡張です。

@@ -1,9 +1,11 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using UnityEditor;
 using UnityEngine;
 using System.Linq;
 using SyskenTLib.LicenseMaster;
+using UnityEngine.UI;
 
 namespace SyskenTLib.LicenseMasterEditor
 {
@@ -56,6 +58,23 @@ namespace SyskenTLib.LicenseMasterEditor
                 List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
                 List<LicenseConfig> mustShowLicenseConfigOnlyList =
                     _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+
+                OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                string rawHTMLText = outputFileFormatManager.GenerateHTML(mustShowLicenseConfigOnlyList);
+
+                TextAsset textAsset = SearchHTMLAssetOnAllLicenceConfig();
+                string filePath = AssetDatabase.GetAssetPath(textAsset);
+                File.WriteAllText(filePath,rawHTMLText);
+                EditorUtility.SetDirty(textAsset);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                
+                
+
+                Selection.activeObject = textAsset;//UnityEditor上で選択したことにする
+                
+                Debug.Log("Htmlを更新しました "+filePath);
+
             }
             
 
@@ -63,9 +82,23 @@ namespace SyskenTLib.LicenseMasterEditor
             if (GUILayout.Button("OutputMarkdown", GUILayout.Width(300)))
             {
                 UpdateRootConfig();
-                 List<LicenseConfig> currentAllConfigList =_licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
-                 List<LicenseConfig> mustShowLicenseConfigOnlyList =
-                     _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+                List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+                List<LicenseConfig> mustShowLicenseConfigOnlyList =
+                    _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+
+                OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                string rawMarkdownText = outputFileFormatManager.GenerateMARKDOWN(mustShowLicenseConfigOnlyList);
+
+                TextAsset textAsset = SearchMarkdownAssetOnAllLicenceConfig();
+                string filePath = AssetDatabase.GetAssetPath(textAsset);
+                File.WriteAllText(filePath,rawMarkdownText);
+                EditorUtility.SetDirty(textAsset);
+                AssetDatabase.SaveAssets();
+                AssetDatabase.Refresh();
+                
+                Selection.activeObject = textAsset;//UnityEditor上で選択したことにする
+                
+                Debug.Log("Markdownを更新しました "+filePath);
             }
 
             EditorGUILayout.EndVertical();
@@ -117,6 +150,37 @@ namespace SyskenTLib.LicenseMasterEditor
             });
             
             return licenseConfigList;
+        }
+        
+        
+        private static TextAsset  SearchHTMLAssetOnAllLicenceConfig()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:LicenseRootConfig");
+            LicenseRootConfig rootConfig = null; 
+            
+            guids.ToList().ForEach(nextGUID =>
+            {
+                string filePath = AssetDatabase.GUIDToAssetPath(nextGUID);
+                rootConfig= AssetDatabase.LoadAssetAtPath<LicenseRootConfig> (filePath);
+                
+            });
+
+            return rootConfig.GetLicenseHTMLAsset();
+        }
+        
+        private static TextAsset  SearchMarkdownAssetOnAllLicenceConfig()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:LicenseRootConfig");
+            LicenseRootConfig rootConfig = null; 
+            
+            guids.ToList().ForEach(nextGUID =>
+            {
+                string filePath = AssetDatabase.GUIDToAssetPath(nextGUID);
+                rootConfig= AssetDatabase.LoadAssetAtPath<LicenseRootConfig> (filePath);
+                
+            });
+
+            return rootConfig.GetLicenseMarkdownAsset();
         }
 
         private static void CreateConfig()

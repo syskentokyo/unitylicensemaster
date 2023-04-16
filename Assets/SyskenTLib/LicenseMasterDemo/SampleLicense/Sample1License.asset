@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76f0aa177eb41caa56a14d710e0d751, type: 3}
+  m_Name: Sample1License
+  m_EditorClassIdentifier: 
+  _libraryName: Sample1
+  _memo1: 
+  _createdTimeText: 2023/04/17_00:27:16
+  _licenseType: 999
+  _isMustShowLicense: 1
+  showLicenseOrder: 167
+  _licenseShowText: 'aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC
+
+    aaaaaaaaaaaa
+
+    BBBBBBBBBBB
+
+    CCCCCCCCCC'

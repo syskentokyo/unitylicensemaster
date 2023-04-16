@@ -1,0 +1,18 @@
+{
+    "name": "LicenseMasterEditor",
+    "rootNamespace": "SyskenTLib.LicenseMasterEditor",
+    "references": [
+        "GUID:c465af0133b0a4e988f13b99a4810579"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

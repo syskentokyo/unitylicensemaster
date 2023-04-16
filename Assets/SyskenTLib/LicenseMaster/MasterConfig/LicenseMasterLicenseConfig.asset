@@ -1,0 +1,71 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b76f0aa177eb41caa56a14d710e0d751, type: 3}
+  m_Name: LicenseMasterLicenseConfig
+  m_EditorClassIdentifier: 
+  _libraryName: LicenseMaster
+  _memo1: 
+  _createdTimeText: 2023/04/14_01:32:26
+  _licenseType: 10
+  _isMustShowLicense: 1
+  showLicenseOrder: 878
+  _licenseShowText: 'MIT License
+
+
+    Copyright (c) 2023 SyskenTokyo
+
+
+    Permission
+    is hereby granted, free of charge, to any person obtaining a copy
+
+    of this
+    software and associated documentation files (the "Software"), to deal
+
+    in
+    the Software without restriction, including without limitation the rights
+
+    to
+    use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+
+    copies
+    of the Software, and to permit persons to whom the Software is
+
+    furnished
+    to do so, subject to the following conditions:
+
+
+    The above copyright notice
+    and this permission notice shall be included in all
+
+    copies or substantial
+    portions of the Software.
+
+
+    THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY
+    OF ANY KIND, EXPRESS OR
+
+    IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES
+    OF MERCHANTABILITY,
+
+    FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.
+    IN NO EVENT SHALL THE
+
+    AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM,
+    DAMAGES OR OTHER
+
+    LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE,
+    ARISING FROM,
+
+    OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
+    DEALINGS IN THE
+
+    SOFTWARE.'

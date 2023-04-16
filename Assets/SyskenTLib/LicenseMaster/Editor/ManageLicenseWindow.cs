@@ -52,53 +52,66 @@ namespace SyskenTLib.LicenseMasterEditor
             EditorGUILayout.Space(50);
 
             EditorGUILayout.LabelField("Output License List");
-            if (GUILayout.Button("OutputHtml", GUILayout.Width(300)))
+            if (GUILayout.Button("Output", GUILayout.Width(300)))
             {
-                UpdateRootConfig();
-                List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
-                List<LicenseConfig> mustShowLicenseConfigOnlyList =
-                    _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+                {
+                    UpdateRootConfig(); 
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+                    List<LicenseConfig> mustShowLicenseConfigOnlyList = _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
 
-                OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
-                string rawHTMLText = outputFileFormatManager.GenerateHTML(mustShowLicenseConfigOnlyList);
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawHTMLText = outputFileFormatManager.GenerateHTML(mustShowLicenseConfigOnlyList);
 
-                TextAsset textAsset = SearchHTMLAssetOnAllLicenceConfig();
-                string filePath = AssetDatabase.GetAssetPath(textAsset);
-                File.WriteAllText(filePath,rawHTMLText);
-                EditorUtility.SetDirty(textAsset);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
+                    TextAsset textAsset = SearchHTMLAssetOnAllLicenceConfig();
+                    string filePath = AssetDatabase.GetAssetPath(textAsset);
+                    File.WriteAllText(filePath, rawHTMLText);
+                    EditorUtility.SetDirty(textAsset);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+                    Debug.Log("Htmlを更新しました "+filePath);
+                }
                 
+                {
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+                    List<LicenseConfig> mustShowLicenseConfigOnlyList =
+                        _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawMarkdownText =
+                        outputFileFormatManager.GenerateMARKDOWNForUseApp(mustShowLicenseConfigOnlyList);
+
+                    TextAsset textAsset = SearchMarkdownAssetOnAllLicenceConfig();
+                    string filePath = AssetDatabase.GetAssetPath(textAsset);
+                    File.WriteAllText(filePath, rawMarkdownText);
+                    EditorUtility.SetDirty(textAsset);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+
+                    Selection.activeObject = textAsset; //UnityEditor上で選択したことにする
+
+                    Debug.Log("Markdownを更新しました " + filePath);
+                }
                 
+                {
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
 
-                Selection.activeObject = textAsset;//UnityEditor上で選択したことにする
-                
-                Debug.Log("Htmlを更新しました "+filePath);
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawMarkdownText =
+                        outputFileFormatManager.GenerateMARKDOWNForUseGit(currentAllConfigList);
 
-            }
-            
+                    string saveDirPath = Application.dataPath + "/.." + "/";
+                    string filePath = saveDirPath+"LICENSE_LIST.md";
+                    if (Directory.Exists(saveDirPath) == false)
+                    {
+                        //サブディレクトリ作成
+                        Directory.CreateDirectory(saveDirPath);
+                    }
+                    
+                    
+                    File.WriteAllText(filePath, rawMarkdownText);
 
-            EditorGUILayout.Space(10);
-            if (GUILayout.Button("OutputMarkdown", GUILayout.Width(300)))
-            {
-                UpdateRootConfig();
-                List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
-                List<LicenseConfig> mustShowLicenseConfigOnlyList =
-                    _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
-
-                OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
-                string rawMarkdownText = outputFileFormatManager.GenerateMARKDOWN(mustShowLicenseConfigOnlyList);
-
-                TextAsset textAsset = SearchMarkdownAssetOnAllLicenceConfig();
-                string filePath = AssetDatabase.GetAssetPath(textAsset);
-                File.WriteAllText(filePath,rawMarkdownText);
-                EditorUtility.SetDirty(textAsset);
-                AssetDatabase.SaveAssets();
-                AssetDatabase.Refresh();
-                
-                Selection.activeObject = textAsset;//UnityEditor上で選択したことにする
-                
-                Debug.Log("Markdownを更新しました "+filePath);
+                    Debug.Log("Unityプロジェクトで使っているライセンス一覧を更新しました " + filePath);
+                }
             }
 
             EditorGUILayout.EndVertical();

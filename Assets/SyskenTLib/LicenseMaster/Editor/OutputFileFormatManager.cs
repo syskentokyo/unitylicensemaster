@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using SyskenTLib.LicenseMaster;
@@ -57,7 +58,7 @@ namespace SyskenTLib.LicenseMasterEditor
             return resultText;
         }
         
-        public string GenerateMARKDOWN(List<LicenseConfig> configList)
+        public string GenerateMARKDOWNForUseApp(List<LicenseConfig> configList)
         {
             OutputTemplate outputTemplate = SearchOutputTemplate();
             string resultText = "";
@@ -90,6 +91,48 @@ namespace SyskenTLib.LicenseMasterEditor
             return resultText;
         }
         
+     
+        public string GenerateMARKDOWNForUseGit(List<LicenseConfig> configList)
+        {
+            OutputTemplate outputTemplate = SearchOutputTemplate();
+            string resultText = "";
+
+            //タイトルとスペシャルサンクス
+            resultText += "このUnityプロジェクトが利用しているライブラリ一覧です。"+"\n";
+            resultText += "\n\n更新日時："+DateTime.Now.ToString("yyyy/MM/dd_HH:mm:ss") +"\n";
+            
+
+            configList.ForEach(config =>
+            {
+                //境界
+                resultText += "\n\n"+outputTemplate._markdownLibSpaceText.Replace(outputTemplate._replaceTargetTextDefine,"");
+                
+                //ライブラリ名
+                resultText += "\n"+outputTemplate._markdownLibTitleText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLibrayName);
+
+                resultText += "\n" + "* メモ１：" + "\n";
+                resultText += "\n```\n" + "" + config.GetMemo1+"\n```\n\n\n";
+                
+                resultText += "\n* " + "追加日：" + config.GetCreatedTimeText;
+                resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
+                resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
+
+                //ライセンス表示内容
+                resultText += "\n\n"+outputTemplate._markdownLibContentText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLicenseShowText);
+
+
+                resultText += "\n\n";
+            });
+            
+            //境界
+            resultText += "\n\n"+outputTemplate._markdownLibSpaceText.Replace(outputTemplate._replaceTargetTextDefine,"");
+            
+            //ファイルの最後
+            resultText += "\n"+outputTemplate._markdownBottomTemplateText.Replace(outputTemplate._replaceTargetTextDefine,"");
+
+            
+            return resultText;
+        }
         
     }
 }

@@ -68,6 +68,27 @@ namespace SyskenTLib.LicenseMasterEditor
                 
                 {
                     List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+                    List<LicenseConfig> mustShowLicenseConfigOnlyList =
+                        _licenseUtil.FilterOnlyMustShowLicenseConfig(currentAllConfigList);
+
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawMarkdownText =
+                        outputFileFormatManager.GenerateRawTxtForUseApp(mustShowLicenseConfigOnlyList);
+
+                    TextAsset textAsset = SearchRawTxtAssetOnAllLicenceConfig();
+                    string filePath = AssetDatabase.GetAssetPath(textAsset);
+                    File.WriteAllText(filePath, rawMarkdownText);
+                    EditorUtility.SetDirty(textAsset);
+                    AssetDatabase.SaveAssets();
+                    AssetDatabase.Refresh();
+
+                    Selection.activeObject = textAsset; //UnityEditor上で選択したことにする
+
+                    Debug.Log("RawTxtを更新しました " + filePath);
+                }
+                
+                {
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
 
                     OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
                     string rawMarkdownText =
@@ -163,6 +184,21 @@ namespace SyskenTLib.LicenseMasterEditor
             });
 
             return rootConfig.GetLicenseMarkdownAsset();
+        }
+        
+        private static TextAsset  SearchRawTxtAssetOnAllLicenceConfig()
+        {
+            string[] guids = AssetDatabase.FindAssets("t:LicenseRootConfig");
+            LicenseRootConfig rootConfig = null; 
+            
+            guids.ToList().ForEach(nextGUID =>
+            {
+                string filePath = AssetDatabase.GUIDToAssetPath(nextGUID);
+                rootConfig= AssetDatabase.LoadAssetAtPath<LicenseRootConfig> (filePath);
+                
+            });
+
+            return rootConfig.GetLicenseRawTxtAsset();
         }
 
         private static void CreateConfig()

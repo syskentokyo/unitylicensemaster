@@ -15,3 +15,4 @@ MonoBehaviour:
   _licenseMustShowConfigList: []
   _licenseHtml: {fileID: 4900000, guid: 3cde6c1e6e07494f99302e5987578f90, type: 3}
   _licenseMarkdown: {fileID: 4900000, guid: d26c5da25f6547edb2caa1afd56ac64d, type: 3}
+  _licenseRawTxt: {fileID: 4900000, guid: ba4625cd84c94b4e9a266501c28b95bf, type: 3}

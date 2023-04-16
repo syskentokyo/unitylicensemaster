@@ -13,7 +13,7 @@ namespace SyskenTLib.LicenseMasterEditor
         [Header("別形式")]
         [SerializeField] private TextAsset _licenseHtml;
         [SerializeField] private TextAsset _licenseMarkdown;
-
+        [SerializeField] private TextAsset _licenseRawTxt;
 
         public List<LicenseConfig> GetLicenseList()
         {
@@ -38,6 +38,16 @@ namespace SyskenTLib.LicenseMasterEditor
         public string GetLicenseMarkdown()
         {
             return _licenseMarkdown.text;
+        }
+        
+        public TextAsset GetLicenseRawTxtAsset()
+        {
+            return _licenseRawTxt;
+        }
+        
+        public string GetLicenseRawTxt()
+        {
+            return _licenseRawTxt.text;
         }
         
         

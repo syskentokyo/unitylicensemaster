@@ -19,7 +19,7 @@ namespace SyskenTLib.LicenseMaster
         public List<LicenseConfig> GetLicenseConfigs()
         {
             List<LicenseConfig> sortedConfigList  =  _licenseUtil.SortOrderConfig(rootRootConfig.GetLicenseList());
-            return _licenseUtil.FilterOnlyMustShowLicenseConfig(sortedConfigList);
+            return sortedConfigList;
         }
         
         

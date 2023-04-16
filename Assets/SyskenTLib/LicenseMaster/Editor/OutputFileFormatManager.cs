@@ -134,5 +134,38 @@ namespace SyskenTLib.LicenseMasterEditor
             return resultText;
         }
         
+        public string GenerateRawTxtForUseApp(List<LicenseConfig> configList)
+        {
+            OutputTemplate outputTemplate = SearchOutputTemplate();
+            string resultText = "";
+
+            //タイトルとスペシャルサンクス
+            resultText += outputTemplate._rawTxtTopTemplateText.Replace(outputTemplate._replaceTargetTextDefine,outputTemplate._specialThanksMessage)+"\n";
+            
+
+            configList.ForEach(config =>
+            {
+                //境界
+                resultText += "\n\n"+outputTemplate._rawTxtLibSpaceText.Replace(outputTemplate._replaceTargetTextDefine,"");
+                
+                //ライブラリ名
+                resultText += "\n"+outputTemplate._rawTxtLibTitleText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLibrayName);
+
+                //ライセンス表示内容
+                resultText += "\n\n"+outputTemplate._rawTxtLibContentText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLicenseShowText);
+                
+                
+            });
+            
+            //境界
+            resultText += "\n\n"+outputTemplate._rawTxtLibSpaceText.Replace(outputTemplate._replaceTargetTextDefine,"");
+            
+            //ファイルの最後
+            resultText += "\n"+outputTemplate._rawTxtBottomTemplateText.Replace(outputTemplate._replaceTargetTextDefine,"");
+
+            
+            return resultText;
+        }
+        
     }
 }

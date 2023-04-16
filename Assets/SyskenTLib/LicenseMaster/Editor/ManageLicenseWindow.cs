@@ -31,29 +31,10 @@ namespace SyskenTLib.LicenseMasterEditor
             UpdateRootConfig();
         }
         
-
-        private void OnGUI()
+        
+        [MenuItem("SyskenTLib/LicenseMaster/Ouput", priority = 230)]
+        private static void OutPutFile()
         {
-            //スクロール
-            _currentScroveViewPosition = EditorGUILayout.BeginScrollView(_currentScroveViewPosition);
-
-            EditorGUILayout.BeginVertical("Box");
-
-            EditorGUILayout.Space(10);
-
-
-
-            if (GUILayout.Button("CreateConfig", GUILayout.Width(300)))
-            {
-                CreateConfig();
-                UpdateRootConfig();
-            }
-
-            EditorGUILayout.Space(50);
-
-            EditorGUILayout.LabelField("Output License List");
-            if (GUILayout.Button("Output", GUILayout.Width(300)))
-            {
                 {
                     UpdateRootConfig(); 
                     List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
@@ -112,11 +93,6 @@ namespace SyskenTLib.LicenseMasterEditor
 
                     Debug.Log("Unityプロジェクトで使っているライセンス一覧を更新しました " + filePath);
                 }
-            }
-
-            EditorGUILayout.EndVertical();
-
-            EditorGUILayout.EndScrollView();
         }
 
         private static LicenseRootConfig SearchAllRootConfig()

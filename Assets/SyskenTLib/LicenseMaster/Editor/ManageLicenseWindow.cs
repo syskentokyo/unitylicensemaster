@@ -15,14 +15,7 @@ namespace SyskenTLib.LicenseMasterEditor
 
         private static LicenseUtil _licenseUtil = new LicenseUtil();
 
-
-        [MenuItem("SyskenTLib/LicenseMaster/ManageLicense", priority = 30)]
-        private static void ShowWindow()
-        {
-            var window = GetWindow<ManageLicenseWindow>();
-            window.titleContent = new GUIContent("ManageLicense");
-            window.Show();
-        }
+        
         
         [MenuItem("SyskenTLib/LicenseMaster/CreateConfig", priority = 130)]
         private static void AddConfigFile()

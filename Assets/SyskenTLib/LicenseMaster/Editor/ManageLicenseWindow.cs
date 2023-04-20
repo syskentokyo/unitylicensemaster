@@ -63,7 +63,7 @@ namespace SyskenTLib.LicenseMasterEditor
 
                     Selection.activeObject = textAsset; //UnityEditor上で選択したことにする
 
-                    Debug.Log("Markdownを更新しました " + filePath);
+                    Debug.Log($@"Markdownを更新しました　 <a href=""{filePath}"" >{filePath}</a>");
                 }
                 
                 {
@@ -84,7 +84,7 @@ namespace SyskenTLib.LicenseMasterEditor
 
                     Selection.activeObject = textAsset; //UnityEditor上で選択したことにする
 
-                    Debug.Log("RawTxtを更新しました " + filePath);
+                    Debug.Log($@"RawTxtを更新しました <a href=""{filePath}"" >{filePath}</a>");
                 }
                 
                 {
@@ -94,8 +94,8 @@ namespace SyskenTLib.LicenseMasterEditor
                     string rawMarkdownText =
                         outputFileFormatManager.GenerateMARKDOWNForUseGit(currentAllConfigList);
 
-                    string saveDirPath = Application.dataPath + "/.." + "/";
-                    string filePath = saveDirPath+"LICENSE_LIST.md";
+                    string saveDirPath = Path.GetDirectoryName(Application.dataPath);
+                    string filePath = saveDirPath+"/"+"LICENSE_LIST.md";
                     if (Directory.Exists(saveDirPath) == false)
                     {
                         //サブディレクトリ作成
@@ -104,8 +104,7 @@ namespace SyskenTLib.LicenseMasterEditor
                     
                     
                     File.WriteAllText(filePath, rawMarkdownText);
-
-                    Debug.Log("Unityプロジェクトで使っているライセンス一覧を更新しました " + filePath);
+                    Debug.Log($@"Unityプロジェクトで使っているライセンス一覧を更新しました <a href=""{filePath}"" >{filePath}</a>");
                 }
         }
 

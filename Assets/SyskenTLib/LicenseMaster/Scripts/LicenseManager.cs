@@ -41,6 +41,15 @@ namespace SyskenTLib.LicenseMaster
             return rootRootConfig.GetLicenseMarkdown();
         }
 
+        /// <summary>
+        /// ライセンス表記が必要なライセンス一覧のテキストを返す
+        /// </summary>
+        /// <returns></returns>
+        public string GetLicenseConfigsTxt()
+        {
+            return rootRootConfig.GetLicenseRawTxt();
+        }
+
 
     }
 }

@@ -1,0 +1,16 @@
+{
+    "name": "LicenseMasterDemo",
+    "rootNamespace": "SyskenTLib.LicenseMasterDemo",
+    "references": [
+        "GUID:c465af0133b0a4e988f13b99a4810579"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

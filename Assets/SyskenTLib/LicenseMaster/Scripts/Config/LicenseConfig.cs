@@ -38,11 +38,13 @@ namespace SyskenTLib.LicenseMaster
         public string GetLibrayName => _libraryName; 
         
         
+#if UNITY_EDITOR
         [Space(10)]
         [Header("メモ")]
         [TextArea(minLines:4,maxLines:100)]
         [SerializeField] private string  _memo1 = "";
         public string GetMemo1 => _memo1; 
+#endif
 
         [Space(10)]
         [Header("作成日時")]

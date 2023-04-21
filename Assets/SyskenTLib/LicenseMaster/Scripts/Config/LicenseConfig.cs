@@ -40,10 +40,21 @@ namespace SyskenTLib.LicenseMaster
         
 #if UNITY_EDITOR
         [Space(10)]
-        [Header("メモ")]
+        [Header("メモ(UnityEditor上のみ有効）")]
         [TextArea(minLines:4,maxLines:100)]
         [SerializeField] private string  _memo1 = "";
         public string GetMemo1 => _memo1; 
+        
+        [Space(10)]
+        [Header("WebPageURL(UnityEditor上のみ有効）")]
+        [TextArea(minLines:1,maxLines:2)]
+        [SerializeField] private string  _webURL1 = "";
+        public string GetWebURL1 => _webURL1;
+        
+        [TextArea(minLines:1,maxLines:2)]
+        [SerializeField] private string  _webURL2 = "";
+        public string GetWebURL2 => _webURL2; 
+
 #endif
 
         [Space(10)]
@@ -70,7 +81,16 @@ namespace SyskenTLib.LicenseMaster
         
         [Header("ライセンス表記する場合の優先度: 0:high 1000:low")] [Range(0, 1000)] [SerializeField]
         private int showLicenseOrder = 500;
-        public int GetShowLicenseOrder => showLicenseOrder; 
+        public int GetShowLicenseOrder => showLicenseOrder;
+        
+        [Header("カスタムパラメータ")]
+        [TextArea(minLines:1,maxLines:100)]
+        [SerializeField] private string  _customText1 = "";
+        public string GetCustomText1 => _customText1;
+        
+        [TextArea(minLines:1,maxLines:100)]
+        [SerializeField] private string  _customText2 = "";
+        public string GetCustomText2 => _customText2; 
         
         
         [Header("ライセンスの表示内容")]

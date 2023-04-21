@@ -4,5 +4,8 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/SyskenTLib/LicenseMasterDemo/Scene/Demo1.unity
+    guid: 832af8d17c8774f8280f13fbab0a8a74
   m_configObjects: {}

@@ -116,6 +116,10 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "追加日：" + config.GetCreatedTimeText;
                 resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
                 resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
+                resultText += "\n\n\n* " + "WebURL1：" + config.GetWebURL1;
+                resultText += "\n* " + "WebURL2：" + config.GetWebURL2;
+                resultText += "\n\n\n* " + "カスタム１：" + config.GetCustomText1;
+                resultText += "\n* " + "カスタム2：" + config.GetCustomText2;
 
                 //ライセンス表示内容
                 resultText += "\n\n"+outputTemplate._markdownLibContentText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLicenseShowText);

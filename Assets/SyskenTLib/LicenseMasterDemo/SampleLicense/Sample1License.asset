@@ -14,10 +14,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryName: Sample1
   _memo1: 
+  _webURL1: 
+  _webURL2: 
   _createdTimeText: 2023/04/17_00:27:16
   _licenseType: 999
   _isMustShowLicense: 1
   showLicenseOrder: 167
+  _customText1: Custom1
+  _customText2: Custom2
   _licenseShowText: 'aaaaaaaaaaaa
 
     BBBBBBBBBBB

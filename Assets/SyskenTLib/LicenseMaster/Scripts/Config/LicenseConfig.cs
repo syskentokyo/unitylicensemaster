@@ -46,6 +46,12 @@ namespace SyskenTLib.LicenseMaster
         public string GetMemo1 => _memo1; 
         
         [Space(10)]
+        [Header("Version(UnityEditor上のみ有効）")]
+        [TextArea(minLines:1,maxLines:2)]
+        [SerializeField] private string  _libversion = "None";
+        public string GetLibVersion => _libversion;
+        
+        [Space(10)]
         [Header("WebPageURL(UnityEditor上のみ有効）")]
         [TextArea(minLines:1,maxLines:2)]
         [SerializeField] private string  _webURL1 = "";

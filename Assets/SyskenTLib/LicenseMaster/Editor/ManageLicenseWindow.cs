@@ -107,6 +107,22 @@ namespace SyskenTLib.LicenseMasterEditor
                     Debug.Log($@"Unityプロジェクトで使っているライセンス一覧を更新しました <a href=""{filePath}"" >{filePath}</a>");
                 }
         }
+        
+        
+        [MenuItem("SyskenTLib/LicenseMaster/OutputEachLicenseMemo", priority = 240)]
+        private static void OutPutEachMemoFile()
+        {
+                {
+                    UpdateRootConfig(); 
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+
+                    LicenseMemoManager licenseMemoManager = new LicenseMemoManager();
+                    List<string> updateFilePathList = licenseMemoManager.GenerateEachLicenseMemo(currentAllConfigList);
+                    
+                    
+                    Debug.Log("ライセンスメモを更新しました\n "+ string.Join("\n", updateFilePathList));
+                }
+        }
 
         private static LicenseRootConfig SearchAllRootConfig()
         {

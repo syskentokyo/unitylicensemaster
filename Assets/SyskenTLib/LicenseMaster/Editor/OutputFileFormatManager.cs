@@ -1,7 +1,9 @@
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using SyskenTLib.LicenseMaster;
+using Unity.Plastic.Antlr3.Runtime.Misc;
 using UnityEditor;
 using UnityEngine;
 
@@ -12,17 +14,9 @@ namespace SyskenTLib.LicenseMasterEditor
         
         private OutputTemplate SearchOutputTemplate()
         {
-            string[] guids = AssetDatabase.FindAssets("t:OutputTemplate");
-            OutputTemplate outputTemplate = null; 
-            
-            guids.ToList().ForEach(nextGUID =>
-            {
-                string filePath = AssetDatabase.GUIDToAssetPath(nextGUID);
-                outputTemplate= AssetDatabase.LoadAssetAtPath<OutputTemplate> (filePath);
-                
-            });
-            
-            return outputTemplate;
+            OutputTemplateFileManager fileTemplateManager = new OutputTemplateFileManager();
+
+            return fileTemplateManager.SearchOutputTemplate();
         }
 
         public string GenerateHTML(List<LicenseConfig> configList)
@@ -171,6 +165,6 @@ namespace SyskenTLib.LicenseMasterEditor
             
             return resultText;
         }
-        
+
     }
 }

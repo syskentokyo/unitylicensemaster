@@ -9,15 +9,22 @@ namespace SyskenTLib.LicenseMaster
         Apache=11,
         BSD3Clause=12,
         
+        //UnityAssetStore系
         UnityAssetStoreSingleEntity=20,
         UnityAssetStoreMultiEntity=21,
         UnityAssetStoreSeat=22,
         UnityAssetStoreOld20200203=23,
         
+        //クリエイティブ・コモンズ
         CC0=300,
         
+        //フォント系
+        SILOpenFontLicenseVersion1_1=400,
+        
+        //Mozilla系
         MozillaPublic=700,
         
+        //GPL系
         GPL = 800,
         LGPL=801,
         AGPL=802,

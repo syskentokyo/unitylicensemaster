@@ -15,12 +15,7 @@ namespace SyskenTLib.LicenseMasterEditor
 
         private static LicenseUtil _licenseUtil = new LicenseUtil();
 
-        
-        [MenuItem("SyskenTLib/LicenseMaster", priority = 30)]
-        private static void OpenRoot()
-        {
 
-        }
         
         
         [MenuItem("SyskenTLib/LicenseMaster/CreateConfig", priority = 130)]
@@ -31,7 +26,7 @@ namespace SyskenTLib.LicenseMasterEditor
         }
         
         
-        [MenuItem("SyskenTLib/LicenseMaster/Ouput", priority = 230)]
+        [MenuItem("SyskenTLib/LicenseMaster/CreateAllLicense", priority = 230)]
         private static void OutPutFile()
         {
                 {
@@ -115,7 +110,7 @@ namespace SyskenTLib.LicenseMasterEditor
         }
         
         
-        [MenuItem("SyskenTLib/LicenseMaster/OutputEachLicenseMemo", priority = 240)]
+        [MenuItem("SyskenTLib/LicenseMaster/CreateEachLicenseMemo", priority = 330)]
         private static void OutPutEachMemoFile()
         {
                 {

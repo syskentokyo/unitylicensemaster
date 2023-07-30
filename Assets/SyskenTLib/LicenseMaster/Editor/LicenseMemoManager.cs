@@ -43,7 +43,7 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "カスタム2：" + config.GetCustomText2;
 
                 //ライセンス表示内容
-                resultText += "\n\n"+outputTemplate._markdownLibContentText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLicenseShowText);
+                resultText += "\n\n\nライセンス表記内容：\n\n"+outputTemplate._markdownLibContentText.Replace(outputTemplate._replaceTargetTextDefine,config.GetLicenseShowText);
 
 
                 resultText += "\n";

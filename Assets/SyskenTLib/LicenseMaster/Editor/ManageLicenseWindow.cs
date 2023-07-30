@@ -16,6 +16,12 @@ namespace SyskenTLib.LicenseMasterEditor
         private static LicenseUtil _licenseUtil = new LicenseUtil();
 
         
+        [MenuItem("SyskenTLib/LicenseMaster", priority = 30)]
+        private static void OpenRoot()
+        {
+
+        }
+        
         
         [MenuItem("SyskenTLib/LicenseMaster/CreateConfig", priority = 130)]
         private static void AddConfigFile()

@@ -26,7 +26,7 @@ namespace SyskenTLib.LicenseMasterEditor
         }
         
         
-        [MenuItem("SyskenTLib/LicenseMaster/CreateAllLicense", priority = 230)]
+        [MenuItem("SyskenTLib/LicenseMaster/UpdateAllLicense", priority = 230)]
         private static void OutPutFile()
         {
                 {
@@ -93,7 +93,28 @@ namespace SyskenTLib.LicenseMasterEditor
 
                     OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
                     string rawMarkdownText =
-                        outputFileFormatManager.GenerateMARKDOWNForUseGit(currentAllConfigList);
+                        outputFileFormatManager.GenerateMARKDOWNDetailListForUseGit(currentAllConfigList);
+
+                    string saveDirPath = Path.GetDirectoryName(Application.dataPath);
+                    string filePath = saveDirPath+"/"+"LICENSE_DETAIL_LIST.md";
+                    if (Directory.Exists(saveDirPath) == false)
+                    {
+                        //サブディレクトリ作成
+                        Directory.CreateDirectory(saveDirPath);
+                    }
+                    
+                    
+                    File.WriteAllText(filePath, rawMarkdownText);
+                    Debug.Log($@"Unityプロジェクトで使っているライセンス詳細を更新しました <a href=""{filePath}"" >{filePath}</a>");
+                }
+                
+                                
+                {
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawMarkdownText =
+                        outputFileFormatManager.GenerateMARKDOWNSimpleListForUseGit(currentAllConfigList);
 
                     string saveDirPath = Path.GetDirectoryName(Application.dataPath);
                     string filePath = saveDirPath+"/"+"LICENSE_LIST.md";
@@ -105,7 +126,7 @@ namespace SyskenTLib.LicenseMasterEditor
                     
                     
                     File.WriteAllText(filePath, rawMarkdownText);
-                    Debug.Log($@"Unityプロジェクトで使っているライセンス一覧を更新しました <a href=""{filePath}"" >{filePath}</a>");
+                    Debug.Log($@"Unityプロジェクトで使っているライセンス(一覧)を更新しました <a href=""{filePath}"" >{filePath}</a>");
                 }
         }
         

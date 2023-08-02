@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryName: LicenseMaster
   _memo1: 
-  _libversion: 1.5.0
+  _libversion: 1.6.0
   _webURL1: https://github.com/syskentokyo/unitylicensemaster
   _webURL2: 
   _createdTimeText: 2023/04/14_01:32:26

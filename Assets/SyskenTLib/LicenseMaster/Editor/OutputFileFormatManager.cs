@@ -109,6 +109,7 @@ namespace SyskenTLib.LicenseMasterEditor
                 
                 resultText += "\n* " + "追加日：" + config.GetCreatedTimeText;
                 resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
+                resultText += "\n* " + "料金タイプ：" + config.GetChargeType;
                 resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
                 resultText += "\n\n\n* " + "バージョン：" + config.GetLibVersion;
                 resultText += "\n\n\n* " + "WebURL1：" + config.GetWebURL1;
@@ -148,8 +149,8 @@ namespace SyskenTLib.LicenseMasterEditor
             resultText += "\n\n更新日時："+DateTime.Now.ToString("yyyy/MM/dd_HH:mm:ss") +"\n";
             
             
-            resultText += "\n" + "| Name  | License Type | URL1 | URL2 | Memo1 | Add Date |" + "\n";
-            resultText += "" + "| -------------  | ------------- | ------------- | ------------- | ------------- | ------------- |" + "\n";
+            resultText += "\n" + "| Name  | License Type | Charge Type | URL1 | URL2 | Memo1 | Add Date |" + "\n";
+            resultText += "" + "| -------------  | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |" + "\n";
 
             
             configList.ForEach(config =>
@@ -160,6 +161,7 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "" 
                               + "| "+config.GetLibrayName+ " "
                               + "| "+config.GetLicenseType+ " "
+                              + "| "+config.GetChargeType+ " "
                               + "| "+config.GetWebURL1+ " "
                               + "| "+config.GetWebURL2+ " "
                               + "| "+validMemo1+ " "

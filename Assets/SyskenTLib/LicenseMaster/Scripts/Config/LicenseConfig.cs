@@ -32,6 +32,14 @@ namespace SyskenTLib.LicenseMaster
         Other= 999,
         
     }
+
+    public enum ChargeType
+    {
+        Unknown,
+        Free,
+        Paid_OneTimePurchase,
+        Paid_Subscritption,
+    }
     
     
     public class LicenseConfig : ScriptableObject
@@ -85,7 +93,12 @@ namespace SyskenTLib.LicenseMaster
             [Space(10)]
         [Header("ライセンス")]
         [SerializeField] private LicenseType _licenseType = LicenseType.Other;
-            public LicenseType GetLicenseType=> _licenseType; 
+        public LicenseType GetLicenseType=> _licenseType;
+            
+        [SerializeField] private ChargeType _chargeType = ChargeType.Unknown;
+        public ChargeType GetChargeType=> _chargeType;
+
+        
             
             
         [Header("ライセンス表記が必要か？")] [SerializeField] private bool _isMustShowLicense = false;

@@ -35,6 +35,7 @@ namespace SyskenTLib.LicenseMasterEditor
                 
                 resultText += "\n* " + "追加日：" + config.GetCreatedTimeText;
                 resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
+                resultText += "\n* " + "料金タイプ：" + config.GetChargeType;
                 resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
                 resultText += "\n* " + "バージョン：" + config.GetLibVersion;
                 resultText += "\n* " + "WebURL1：" + config.GetWebURL1;

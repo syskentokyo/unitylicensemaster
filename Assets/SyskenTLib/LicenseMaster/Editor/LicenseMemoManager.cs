@@ -44,7 +44,11 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "使用しているライブラリ";
                 config.GetUseLicenseList.ForEach(useLibConfig =>
                 {
-                    resultText += "\n  * " + ""+useLibConfig.GetLibrayName+" ( "+useLibConfig.GetWebURL1+" ) ";
+                    if (useLibConfig != null)
+                    {
+                        resultText += "\n  * " + "" + useLibConfig.GetLibrayName + " ( " + useLibConfig.GetWebURL1 +
+                                      " ) ";
+                    }
                 });
                 
                 

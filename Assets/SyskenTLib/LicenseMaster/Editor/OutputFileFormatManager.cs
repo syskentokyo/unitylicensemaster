@@ -118,7 +118,10 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "使用しているライブラリ";
                 config.GetUseLicenseList.ForEach(useLibConfig =>
                 {
-                    resultText += "\n  * " + ""+useLibConfig.GetLibrayName;
+                    if (useLibConfig != null)
+                    {
+                        resultText += "\n  * " + "" + useLibConfig.GetLibrayName;
+                    }
                 });
                 
                 resultText += "\n\n\n* " + "カスタム１：" + config.GetCustomText1;
@@ -167,7 +170,10 @@ namespace SyskenTLib.LicenseMasterEditor
                 string useLibTxt = "";
                 config.GetUseLicenseList.ForEach(useLibConfig =>
                 {
-                    useLibTxt += "" + ""+useLibConfig.GetLibrayName+"<br>";
+                    if (useLibConfig != null)
+                    {
+                        useLibTxt += "" + "" + useLibConfig.GetLibrayName + "<br>";
+                    }
                 });
                 
                 

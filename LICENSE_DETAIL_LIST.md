@@ -1,7 +1,7 @@
 このUnityプロジェクトが利用しているライブラリ一覧(詳細)です。
 
 
-更新日時：2023/09/24_02:11:50
+更新日時：2023/09/24_02:15:16
 
 
 -------
@@ -23,7 +23,7 @@
 * バージョン：None
 
 
-* WebURL1：
+* WebURL1：https://simplecalendar.service.sysken.tokyo/
 * WebURL2：
 * 使用しているライブラリ
   * LicenseMaster

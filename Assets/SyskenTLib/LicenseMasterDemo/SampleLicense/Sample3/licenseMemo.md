@@ -1,6 +1,6 @@
 LicenseMasterで自動作成されました。
 
-メモ更新日時：2023/09/24_02:11:53
+メモ更新日時：2023/09/24_02:15:18
 
 ## Sample3
 
@@ -24,8 +24,8 @@ Memoサンプルサンプル
 * WebURL1：
 * WebURL2：
 * 使用しているライブラリ
-  * LicenseMaster
-  * Sample1
+  * LicenseMaster ( https://github.com/syskentokyo/unitylicensemaster ) 
+  * Sample1 ( https://simplecalendar.service.sysken.tokyo/ ) 
 * カスタム１：
 * カスタム2：
 

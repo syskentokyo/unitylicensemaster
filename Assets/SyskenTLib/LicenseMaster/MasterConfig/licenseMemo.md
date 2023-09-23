@@ -1,6 +1,6 @@
 LicenseMasterで自動作成されました。
 
-メモ更新日時：2023/09/24_02:06:26
+メモ更新日時：2023/09/24_02:11:53
 
 ## LicenseMaster
 
@@ -14,7 +14,7 @@ LicenseMasterで自動作成されました。
 * ライセンス：MIT
 * 料金タイプ：Unknown
 * ライセンス表記が必要？：True
-* バージョン：1.6.0
+* バージョン：1.8.0
 * WebURL1：https://github.com/syskentokyo/unitylicensemaster
 * WebURL2：
 * 使用しているライブラリ

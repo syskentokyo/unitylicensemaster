@@ -17,6 +17,8 @@ MonoBehaviour:
   _libversion: None
   _webURL1: 
   _webURL2: 
+  _useLicenseList:
+  - {fileID: 11400000, guid: 61c848b1adb1d4b8ea34c966ce58d2ec, type: 2}
   _createdTimeText: 2023/04/17_00:27:16
   _licenseType: 10
   _chargeType: 1

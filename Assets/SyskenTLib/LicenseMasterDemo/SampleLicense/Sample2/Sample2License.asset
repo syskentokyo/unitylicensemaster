@@ -14,10 +14,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _libraryName: Sample2
   _memo1: 
+  _libversion: None
+  _webURL1: 
+  _webURL2: 
+  _useLicenseList:
+  - {fileID: 11400000, guid: 8ac4e3dc9578e470db3ec4cf07435606, type: 2}
+  - {fileID: 11400000, guid: 61c848b1adb1d4b8ea34c966ce58d2ec, type: 2}
   _createdTimeText: 2023/04/17_00:27:16
   _licenseType: 999
+  _chargeType: 0
   _isMustShowLicense: 1
   showLicenseOrder: 910
+  _customText1: 
+  _customText2: 
   _licenseShowText: 'aaaaaaaaaaaa
 
     BBBBBBBBBBB

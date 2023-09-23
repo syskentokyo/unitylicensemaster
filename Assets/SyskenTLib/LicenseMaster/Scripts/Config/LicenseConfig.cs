@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace SyskenTLib.LicenseMaster
@@ -74,7 +75,12 @@ namespace SyskenTLib.LicenseMaster
         
         [TextArea(minLines:1,maxLines:2)]
         [SerializeField] private string  _webURL2 = "";
-        public string GetWebURL2 => _webURL2; 
+        public string GetWebURL2 => _webURL2;
+
+        [Header("使用しているライブラリ一覧(UnityEditor上のみ有効）")]
+        [SerializeField] private List<LicenseConfig> _useLicenseList=new List<LicenseConfig>();
+
+        public List<LicenseConfig> GetUseLicenseList => _useLicenseList;
 
 #endif
 

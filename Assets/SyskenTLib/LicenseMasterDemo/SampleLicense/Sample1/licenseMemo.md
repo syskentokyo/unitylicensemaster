@@ -1,6 +1,6 @@
 LicenseMasterで自動作成されました。
 
-メモ更新日時：2023/09/06_01:44:11
+メモ更新日時：2023/09/24_02:06:26
 
 ## Sample1
 
@@ -17,6 +17,8 @@ LicenseMasterで自動作成されました。
 * バージョン：None
 * WebURL1：
 * WebURL2：
+* 使用しているライブラリ
+** LicenseMaster
 * カスタム１：Custom1
 * カスタム2：Custom2
 

@@ -1,7 +1,7 @@
 このUnityプロジェクトが利用しているライブラリ一覧(詳細)です。
 
 
-更新日時：2023/09/06_01:44:08
+更新日時：2023/09/24_02:06:23
 
 
 -------
@@ -25,6 +25,8 @@
 
 * WebURL1：
 * WebURL2：
+* 使用しているライブラリ
+** LicenseMaster
 
 
 * カスタム１：Custom1
@@ -105,6 +107,9 @@ Memoサンプルサンプル
 
 * WebURL1：
 * WebURL2：
+* 使用しているライブラリ
+** LicenseMaster
+** Sample1
 
 
 * カスタム１：
@@ -144,6 +149,7 @@ Memoサンプルサンプル
 
 * WebURL1：https://github.com/syskentokyo/unitylicensemaster
 * WebURL2：
+* 使用しているライブラリ
 
 
 * カスタム１：
@@ -203,6 +209,9 @@ SOFTWARE.
 
 * WebURL1：
 * WebURL2：
+* 使用しているライブラリ
+** Sample1
+** LicenseMaster
 
 
 * カスタム１：

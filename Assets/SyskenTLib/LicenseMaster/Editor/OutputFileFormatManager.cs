@@ -120,7 +120,8 @@ namespace SyskenTLib.LicenseMasterEditor
                 {
                     if (useLibConfig != null)
                     {
-                        resultText += "\n  * " + "" + useLibConfig.GetLibrayName;
+                        resultText += "\n  * " + "" + useLibConfig.GetLibrayName+ " ( " + useLibConfig.GetWebURL1 +
+                                      " ) ";
                     }
                 });
                 
@@ -172,7 +173,8 @@ namespace SyskenTLib.LicenseMasterEditor
                 {
                     if (useLibConfig != null)
                     {
-                        useLibTxt += "" + "" + useLibConfig.GetLibrayName + "<br>";
+                        useLibTxt += "" + "" + useLibConfig.GetLibrayName+ " ( " + useLibConfig.GetWebURL1 +
+                                     " ) " + "<br>";
                     }
                 });
                 

@@ -1,7 +1,7 @@
 このUnityプロジェクトが利用しているライブラリ一覧(詳細)です。
 
 
-更新日時：2024/07/25_01:50:32
+更新日時：2024/07/25_02:04:29
 
 
 -------
@@ -144,7 +144,7 @@ Memoサンプルサンプル
 
 * 追加日：2023/04/14_01:32:26
 * ライセンス：MIT
-* 料金タイプ：Unknown
+* 料金タイプ：Free
 * ライセンス表記が必要？：True
 * チームメンバーごとにライセンス購入が必要か？：False
 * チームメンバー全員が把握する必要があるライブラリか？：False
@@ -167,7 +167,7 @@ Memoサンプルサンプル
 
 MIT License
 
-Copyright (c) 2023 SyskenTokyo
+Copyright (c) 2024 SyskenTokyo
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -186,6 +186,7 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
 
 ```
 

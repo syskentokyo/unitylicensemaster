@@ -20,15 +20,15 @@ MonoBehaviour:
   _useLicenseList: []
   _createdTimeText: 2023/04/14_01:32:26
   _licenseType: 10
-  _chargeType: 0
+  _chargeType: 1
+  _isNeedToPurchaseForEachMember: 0
+  _isNeedAboutThisLibForEachMember: 0
   _isMustShowLicense: 1
   showLicenseOrder: 878
-  _customText1: 
-  _customText2: 
   _licenseShowText: 'MIT License
 
 
-    Copyright (c) 2023 SyskenTokyo
+    Copyright (c) 2024 SyskenTokyo
 
 
     Permission
@@ -75,4 +75,8 @@ MonoBehaviour:
     OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER
     DEALINGS IN THE
 
-    SOFTWARE.'
+    SOFTWARE.
+
+'
+  _customText1: 
+  _customText2: 

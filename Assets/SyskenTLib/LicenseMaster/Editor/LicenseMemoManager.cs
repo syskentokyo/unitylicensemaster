@@ -37,6 +37,8 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
                 resultText += "\n* " + "料金タイプ：" + config.GetChargeType;
                 resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
+                resultText += "\n* " + "チームメンバーごとにライセンス購入が必要か？：" + config.GetNeedToPurchaseForEachMember;
+                resultText += "\n* " + "チームメンバー全員が把握する必要があるライブラリか？：" + config.GetIsNeedAboutThisLibForEachMember;
                 resultText += "\n* " + "バージョン：" + config.GetLibVersion;
                 resultText += "\n* " + "WebURL1：" + config.GetWebURL1;
                 resultText += "\n* " + "WebURL2：" + config.GetWebURL2;

@@ -96,7 +96,7 @@ namespace SyskenTLib.LicenseMasterEditor
                         outputFileFormatManager.GenerateMARKDOWNDetailListForUseGit(currentAllConfigList);
 
                     string saveDirPath = Path.GetDirectoryName(Application.dataPath);
-                    string filePath = saveDirPath+"/"+"LICENSE_DETAIL_LIST.md";
+                    string filePath = saveDirPath+"/"+"USE_LIB_LICENSE_DETAIL_LIST.md";
                     if (Directory.Exists(saveDirPath) == false)
                     {
                         //サブディレクトリ作成
@@ -117,7 +117,7 @@ namespace SyskenTLib.LicenseMasterEditor
                         outputFileFormatManager.GenerateMARKDOWNSimpleListForUseGit(currentAllConfigList);
 
                     string saveDirPath = Path.GetDirectoryName(Application.dataPath);
-                    string filePath = saveDirPath+"/"+"LICENSE_LIST.md";
+                    string filePath = saveDirPath+"/"+"USE_LIB_LICENSE_LIST.md";
                     if (Directory.Exists(saveDirPath) == false)
                     {
                         //サブディレクトリ作成
@@ -127,6 +127,26 @@ namespace SyskenTLib.LicenseMasterEditor
                     
                     File.WriteAllText(filePath, rawMarkdownText);
                     Debug.Log($@"Unityプロジェクトで使っているライセンス(一覧)を更新しました <a href=""{filePath}"" >{filePath}</a>");
+                }
+                
+                {
+                    List<LicenseConfig> currentAllConfigList = _licenseUtil.SortOrderConfig(SearchAllLicenceConfig());
+
+                    OutputFileFormatManager outputFileFormatManager = new OutputFileFormatManager();
+                    string rawMarkdownText =
+                        outputFileFormatManager.GenerateMARKDOWNToTeamMemberForUseGit(currentAllConfigList);
+
+                    string saveDirPath = Path.GetDirectoryName(Application.dataPath);
+                    string filePath = saveDirPath+"/"+"USE_LIB_LICENSE_LIST_FOR_TEAM_MEMBER.md";
+                    if (Directory.Exists(saveDirPath) == false)
+                    {
+                        //サブディレクトリ作成
+                        Directory.CreateDirectory(saveDirPath);
+                    }
+                    
+                    
+                    File.WriteAllText(filePath, rawMarkdownText);
+                    Debug.Log($@"チームメンバ用のライセンス(一覧)を更新しました <a href=""{filePath}"" >{filePath}</a>");
                 }
         }
         

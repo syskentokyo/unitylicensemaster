@@ -22,10 +22,10 @@ MonoBehaviour:
   _createdTimeText: 2023/04/17_00:27:16
   _licenseType: 10
   _chargeType: 1
+  _isNeedToPurchaseForEachMember: 1
+  _isNeedAboutThisLibForEachMember: 0
   _isMustShowLicense: 1
   showLicenseOrder: 167
-  _customText1: Custom1
-  _customText2: Custom2
   _licenseShowText: 'aaaaaaaaaaaa
 
     BBBBBBBBBBB
@@ -97,3 +97,5 @@ MonoBehaviour:
     BBBBBBBBBBB
 
     CCCCCCCCCC'
+  _customText1: Custom1
+  _customText2: Custom2

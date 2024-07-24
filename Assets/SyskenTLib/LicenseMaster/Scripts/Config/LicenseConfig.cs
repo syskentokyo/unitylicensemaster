@@ -14,6 +14,9 @@ namespace SyskenTLib.LicenseMaster
         UnityAssetStoreSingleEntity=20,
         UnityAssetStoreMultiEntity=21,
         UnityAssetStoreSeat=22,
+        /// <summary>
+        /// UnityAssetStore(20200203まで）で古いライセンス状態の時に購入したタイプ
+        /// </summary>
         UnityAssetStoreOld20200203=23,
         
         //クリエイティブ・コモンズ
@@ -34,12 +37,17 @@ namespace SyskenTLib.LicenseMaster
         
     }
 
-    public enum ChargeType
+    public enum ChargeType:int
     {
-        Unknown,
-        Free,
-        Paid_OneTimePurchase,
-        Paid_Subscritption,
+        Unknown=0,
+        Free=1,
+        Paid_OneTimePurchase=2,
+        Paid_Subscritption=3,
+        
+        /// <summary>
+        /// 一人一つ購入するもの
+        /// </summary>
+        Paid_PurchaseForTheNumberOfUsers=10
     }
     
     
@@ -77,7 +85,7 @@ namespace SyskenTLib.LicenseMaster
         [SerializeField] private string  _webURL2 = "";
         public string GetWebURL2 => _webURL2;
 
-        [Header("使用しているライブラリ一覧(UnityEditor上のみ有効）")]
+        [Header("使用(依存）しているライブラリ一覧(UnityEditor上のみ有効）")]
         [SerializeField] private List<LicenseConfig> _useLicenseList=new List<LicenseConfig>();
 
         public List<LicenseConfig> GetUseLicenseList => _useLicenseList;
@@ -103,18 +111,30 @@ namespace SyskenTLib.LicenseMaster
             
         [SerializeField] private ChargeType _chargeType = ChargeType.Unknown;
         public ChargeType GetChargeType=> _chargeType;
-
         
-            
-            
+#if UNITY_EDITOR        
+        [Header("========開発チームメンバー向け========")]    
+        [Header("チームメンバーごとに追加アセット・シート購入が必要か？(UnityEditor上のみ有効）")] [SerializeField] private bool _isNeedToPurchaseForEachMember = false;
+        public bool GetNeedToPurchaseForEachMember => _isNeedToPurchaseForEachMember; 
+        
+        [Header("チームメンバー全員がライブラリについて把握しておく必要があるか(UnityEditor上のみ有効）")] [SerializeField] private bool _isNeedAboutThisLibForEachMember = false;
+        public bool GetIsNeedAboutThisLibForEachMember => _isNeedAboutThisLibForEachMember; 
+#endif          
+        
+        [Header("========ライセンス表記系========")]    
         [Header("ライセンス表記が必要か？")] [SerializeField] private bool _isMustShowLicense = false;
         public bool GetIsMustShowLicense => _isMustShowLicense; 
         
         
-        [Header("ライセンス表記する場合の優先度: 0:high 1000:low")] [Range(0, 1000)] [SerializeField]
+        [Header("ライセンス表記する場合の表示優先度: 0:high 1000:low")] [Range(0, 1000)] [SerializeField]
         private int showLicenseOrder = 500;
         public int GetShowLicenseOrder => showLicenseOrder;
         
+        [TextArea(minLines:4,maxLines:30)]
+        [SerializeField] private string  _licenseShowText = "";
+        public string GetLicenseShowText => _licenseShowText; 
+        
+        [Header("========その他========")]    
         [Header("カスタムパラメータ")]
         [TextArea(minLines:1,maxLines:100)]
         [SerializeField] private string  _customText1 = "";
@@ -123,12 +143,7 @@ namespace SyskenTLib.LicenseMaster
         [TextArea(minLines:1,maxLines:100)]
         [SerializeField] private string  _customText2 = "";
         public string GetCustomText2 => _customText2; 
-        
-        
-        [Header("ライセンスの表示内容")]
-        [TextArea(minLines:4,maxLines:100)]
-        [SerializeField] private string  _licenseShowText = "";
-        public string GetLicenseShowText => _licenseShowText; 
+
         
         
 

@@ -111,6 +111,8 @@ namespace SyskenTLib.LicenseMasterEditor
                 resultText += "\n* " + "ライセンス：" + config.GetLicenseType;
                 resultText += "\n* " + "料金タイプ：" + config.GetChargeType;
                 resultText += "\n* " + "ライセンス表記が必要？：" + config.GetIsMustShowLicense;
+                resultText += "\n* " + "チームメンバーごとにライセンス購入が必要か？：" + config.GetNeedToPurchaseForEachMember;
+                resultText += "\n* " + "チームメンバー全員が把握する必要があるライブラリか？：" + config.GetIsNeedAboutThisLibForEachMember;
                 resultText += "\n\n\n* " + "バージョン：" + config.GetLibVersion;
                 resultText += "\n\n\n* " + "WebURL1：" + config.GetWebURL1;
                 resultText += "\n* " + "WebURL2：" + config.GetWebURL2;
@@ -198,6 +200,122 @@ namespace SyskenTLib.LicenseMasterEditor
             
             return resultText;
         }
+        
+        /// <summary>
+        /// チームメンバー用のライブラリ一覧作成する
+        /// </summary>
+        /// <param name="configList"></param>
+        /// <returns></returns>
+        public string GenerateMARKDOWNToTeamMemberForUseGit(List<LicenseConfig> configList)
+        {
+            string resultText = "";
+
+            {
+                resultText += "(自分用ライセンスを持っていない場合）チームメンバーは、下記のライブラリごとに、自分用ライセンス追加購入してください。" + "\n";
+                resultText +=
+                    "(If you don't have your own license)Team members must purchase additional licenses for themselves for each of the libraries listed below." +
+                    "\n";
+
+                resultText += "\n\n更新日時：" + DateTime.Now.ToString("yyyy/MM/dd_HH:mm:ss") + "\n";
+
+
+                resultText += "\n" +
+                              "| Name  | License Type | Charge Type | URL1 | URL2 | Memo1 | Use Lib | Add Date |" +
+                              "\n";
+                resultText += "" +
+                              "| -------------  | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |" +
+                              "\n";
+
+
+                configList.Where(config=>config.GetNeedToPurchaseForEachMember==true).ToList().ForEach(config =>
+                {
+                    string validMemo1 = config.GetMemo1.Replace("\n", "<br>");
+
+                    string useLibTxt = "";
+                    config.GetUseLicenseList.ForEach(useLibConfig =>
+                    {
+                        if (useLibConfig != null)
+                        {
+                            useLibTxt += "" + "" + useLibConfig.GetLibrayName + " ( " + useLibConfig.GetWebURL1 +
+                                         " ) " + "<br>";
+                        }
+                    });
+
+
+                    resultText += ""
+                                  + "| " + config.GetLibrayName + " "
+                                  + "| " + config.GetLicenseType + " "
+                                  + "| " + config.GetChargeType + " "
+                                  + "| " + config.GetWebURL1 + " "
+                                  + "| " + config.GetWebURL2 + " "
+                                  + "| " + validMemo1 + " "
+
+                                  + "| " + useLibTxt + " "
+
+                                  + "| " + config.GetCreatedTimeText + " "
+                                  + "|"
+                                  + "\n";
+
+                });
+
+            }
+
+            resultText += "\n\n\n";
+            
+            {
+                resultText += "チームメンバーは、下記のライブラリの使い方などを知っておく必要があります" + "\n";
+                resultText +=
+                    "Team members need to know how to use the following libraries:" +
+                    "\n";
+
+                resultText += "\n\n更新日時：" + DateTime.Now.ToString("yyyy/MM/dd_HH:mm:ss") + "\n";
+
+
+                resultText += "\n" +
+                              "| Name  | License Type | Charge Type | URL1 | URL2 | Memo1 | Use Lib | Add Date |" +
+                              "\n";
+                resultText += "" +
+                              "| -------------  | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |" +
+                              "\n";
+
+
+                configList.Where(config=>config.GetIsNeedAboutThisLibForEachMember==true).ToList().ForEach(config =>
+                {
+                    string validMemo1 = config.GetMemo1.Replace("\n", "<br>");
+
+                    string useLibTxt = "";
+                    config.GetUseLicenseList.ForEach(useLibConfig =>
+                    {
+                        if (useLibConfig != null)
+                        {
+                            useLibTxt += "" + "" + useLibConfig.GetLibrayName + " ( " + useLibConfig.GetWebURL1 +
+                                         " ) " + "<br>";
+                        }
+                    });
+
+
+                    resultText += ""
+                                  + "| " + config.GetLibrayName + " "
+                                  + "| " + config.GetLicenseType + " "
+                                  + "| " + config.GetChargeType + " "
+                                  + "| " + config.GetWebURL1 + " "
+                                  + "| " + config.GetWebURL2 + " "
+                                  + "| " + validMemo1 + " "
+
+                                  + "| " + useLibTxt + " "
+
+                                  + "| " + config.GetCreatedTimeText + " "
+                                  + "|"
+                                  + "\n";
+
+                });
+
+            }
+
+
+            return resultText;
+        }
+        
         public string GenerateRawTxtForUseApp(List<LicenseConfig> configList)
         {
             OutputTemplate outputTemplate = SearchOutputTemplate();

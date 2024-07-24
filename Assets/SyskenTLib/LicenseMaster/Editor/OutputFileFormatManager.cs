@@ -211,7 +211,7 @@ namespace SyskenTLib.LicenseMasterEditor
             string resultText = "";
 
             {
-                resultText += "(自分用ライセンスを持っていない場合）チームメンバーは、下記のライブラリごとに、自分用ライセンス追加購入してください。" + "\n";
+                resultText += "(自分用ライセンスを持っていない場合）チームメンバーは、下記のライブラリごとに、自分用ライセンス追加購入してください。" + "\n  ";
                 resultText +=
                     "(If you don't have your own license)Team members must purchase additional licenses for themselves for each of the libraries listed below." +
                     "\n";
@@ -263,7 +263,7 @@ namespace SyskenTLib.LicenseMasterEditor
             resultText += "\n\n\n";
             
             {
-                resultText += "チームメンバーは、下記のライブラリの使い方などを知っておく必要があります" + "\n";
+                resultText += "チームメンバーは、下記のライブラリの使い方などを知っておく必要があります" + "\n  ";
                 resultText +=
                     "Team members need to know how to use the following libraries:" +
                     "\n";

@@ -130,10 +130,35 @@ namespace SyskenTLib.LicenseMaster
         private int showLicenseOrder = 500;
         public int GetShowLicenseOrder => showLicenseOrder;
         
+        [Header("ライセンス表記内容")]
+        [Header("説明：テキストファイルがあれば、テキストファイルの内容を記載します。なければRawテキストを記載します")]
+        [Header("=>テキストファイル(優先度高）")]
+        [SerializeField] private TextAsset _licenseShowTextFromTextFile;
+        
+        [Header("=>Rawテキスト")]
         [TextArea(minLines:4,maxLines:30)]
         [SerializeField] private string  _licenseShowText = "";
-        public string GetLicenseShowText => _licenseShowText; 
-        
+
+        /// <summary>
+        /// ライセンス表記内容の取得
+        /// </summary>
+        public string GetLicenseShowText
+        {
+            get
+            {
+                if (_licenseShowTextFromTextFile != null && _licenseShowTextFromTextFile.text.Length > 0)
+                {
+                    //テキストファイルで指定した場合
+                    return _licenseShowTextFromTextFile.text;
+                }
+                else
+                {
+                    // テキストファイルがなかった場合
+                    return _licenseShowText;
+                }
+            }
+        }
+
         [Header("========その他========")]    
         [Header("カスタムパラメータ")]
         [TextArea(minLines:1,maxLines:100)]

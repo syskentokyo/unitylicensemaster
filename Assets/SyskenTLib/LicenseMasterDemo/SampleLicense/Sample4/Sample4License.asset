@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b76f0aa177eb41caa56a14d710e0d751, type: 3}
-  m_Name: Sample3License
+  m_Name: Sample4License
   m_EditorClassIdentifier: 
-  _libraryName: Sample3
+  _libraryName: Sample4License
   _memo1: "Memo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EB\n\n\n\nMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EBMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EB\n\nMemo\u30B5\u30F3\u30D7\u30EB\u30B5\u30F3\u30D7\u30EB"
   _libversion: None
   _webURL1: 
@@ -27,7 +27,7 @@ MonoBehaviour:
   _isNeedAboutThisLibForEachMember: 1
   _isMustShowLicense: 0
   showLicenseOrder: 167
-  _licenseShowTextFromTextFile: {fileID: 0}
-  _licenseShowText: Test3
+  _licenseShowTextFromTextFile: {fileID: 4900000, guid: da5f9e236d06b43b3b8d5c54bc697516, type: 3}
+  _licenseShowText: "Raw\u30C6\u30AD\u30B9\u30C8Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4Sample4"
   _customText1: 
   _customText2: 
